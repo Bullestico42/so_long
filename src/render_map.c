@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_map.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apiscopo <apiscopo@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: apiscopo <apiscopo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 19:29:34 by apiscopo          #+#    #+#             */
-/*   Updated: 2024/12/15 21:37:57 by apiscopo         ###   ########.fr       */
+/*   Updated: 2024/12/16 00:31:31 by apiscopo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	get_images(t_game *game)
 			"textures/player_left.xpm", &width, &height);
 	game->textures->player_right = mlx_xpm_file_to_image(game->mlx,
 			"textures/player_right.xpm", &width, &height);
+	game->textures->lava = mlx_xpm_file_to_image(game->mlx,
+			"textures/lava.xpm", &width, &height);
 }
 
 void	render_map(t_game *game)

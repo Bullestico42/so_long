@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apiscopo <apiscopo@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: apiscopo <apiscopo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 19:28:57 by apiscopo          #+#    #+#             */
-/*   Updated: 2024/12/15 21:54:47 by apiscopo         ###   ########.fr       */
+/*   Updated: 2024/12/17 18:04:24 by apiscopo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,14 @@ void	move_player(t_game *game, int dx, int dy)
 	{
 		move = ft_itoa(game->move);
 		mlx_string_put(game->mlx, game->win,
-			60, game->height * 64 + 15, 0x000000, move);
+			20, game->height * 64 + 20, 0x000000, move);
 		free(move);
 		move_player_two(game, dx, dy);
 		game->move++;
 		move = ft_itoa(game->move);
 		ft_printf("move: %d\n", game->move);
 		mlx_string_put(game->mlx, game->win,
-			60, game->height * 64 + 15, 0xFF0000, move);
+			20, game->height * 64 + 20, 0xFFFFFF, move);
 		free(move);
 	}
 	if (game->coin == 0)

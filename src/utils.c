@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apiscopo <apiscopo@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: apiscopo <apiscopo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 03:53:07 by apiscopo          #+#    #+#             */
-/*   Updated: 2024/12/15 22:07:48 by apiscopo         ###   ########.fr       */
+/*   Updated: 2024/12/16 01:55:34 by apiscopo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	flood_fill(t_game *game, int x, int y)
 		game->grid_e++;
 		game->grid_bis[y][x] = 'T';
 	}
-	print_fill(game);
 	flood_fill(game, x + 1, y);
 	flood_fill(game, x - 1, y);
 	flood_fill(game, x, y + 1);
@@ -75,11 +74,11 @@ void	free_grid(char **grid)
 		i++;
 	}
 	free(grid);
+	grid = NULL;
 }
 
 void	free_resources(t_game *game)
 {
-	exit(0);
 	if (game->textures->wall)
 		mlx_destroy_image(game->mlx, game->textures->wall);
 	if (game->textures->floor)
@@ -96,11 +95,22 @@ void	free_resources(t_game *game)
 		mlx_destroy_image(game->mlx, game->textures->collectible);
 	if (game->textures->exit)
 		mlx_destroy_image(game->mlx, game->textures->exit);
-	if (game->textures->fill)
-		mlx_destroy_image(game->mlx, game->textures->fill);
 	if (game->textures->lava)
 		mlx_destroy_image(game->mlx, game->textures->lava);
+	free_ressources_grid(game);
+}
+
+void	free_ressources_grid(t_game *game)
+{
 	if (game->win)
 		mlx_destroy_window(game->mlx, game->win);
+	if (game->win)
+		mlx_destroy_display(game->mlx);
+	if (game->mlx)	
+		free(game->mlx);
+	if (game->textures)
+		free(game->textures);
 	free_grid(game->grid);
+	free_grid(game->grid_bis);
+	exit(0);
 }

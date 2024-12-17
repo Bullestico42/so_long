@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apiscopo <apiscopo@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: apiscopo <apiscopo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 17:54:31 by apiscopo          #+#    #+#             */
-/*   Updated: 2024/12/15 22:22:20 by apiscopo         ###   ########.fr       */
+/*   Updated: 2024/12/17 18:05:16 by apiscopo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ ssize_t	ft_putun(unsigned int n);
 ssize_t	ft_puthex(unsigned int n, int index);
 ssize_t	convert(const char *str, va_list *args);
 
-int		begin_check(char *file, t_game *game);
+int		begin_render(t_game *game);
 int		check_call(int fd, int n_line, t_game *game, char *file);
 int		read_map(char *file, t_game *game);
 int		check_map(t_game *game);
@@ -100,12 +100,6 @@ int		fill_grid(int fd, int lines, t_game *game);
 int		check_flood(int fd, int n_lines, t_game *game, char *file);
 void	flood_fill(t_game *game, int x, int y);
 
-void	get_images_fill(t_game *game);
-void	print_fill_three(t_game *game);
-void	print_fill_bis(t_game *game);
-void	print_fill(t_game *game);
-void	free_fill(t_game *game);
-
 void	move_player(t_game *game, int dx, int dy);
 void	move_player_two(t_game *game, int dx, int dy);
 void	put_enemy(t_game *game);
@@ -116,5 +110,7 @@ int		valid_move(t_game *game, int dx, int dy);
 
 void	free_resources(t_game *game);
 void	free_grid(char **grid);
+void	put_null(t_game *game);
+void	free_ressources_grid(t_game *game);
 
 #endif

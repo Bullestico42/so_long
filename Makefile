@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: apiscopo <apiscopo@student.42lausanne.c    +#+  +:+       +#+         #
+#    By: apiscopo <apiscopo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/05 18:38:51 by apiscopo          #+#    #+#              #
-#    Updated: 2024/12/13 19:35:22 by apiscopo         ###   ########.fr        #
+#    Updated: 2024/12/16 00:46:31 by apiscopo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,8 @@ HEAD =	includes/so_long.h
 #		COMMAND SHORTCUTS
 #//////////////////////////////////////////////////////////////////////////////
 
-CC = cc
-CF = -Wall -Werror -Wextra -fsanitize=address -static-libasan
+CC = gcc -g -O0
+CF = -Wall -Werror -Wextra #-fsanitize=address -static-libasan
 SL = -Imlx -Imlx_linux -lXext -lX11 -lm -lz
 CI = -I ./src/
 
