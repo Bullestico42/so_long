@@ -106,7 +106,7 @@ void	free_ressources_grid(t_game *game)
 		mlx_destroy_window(game->mlx, game->win);
 	if (game->win)
 		mlx_destroy_display(game->mlx);
-	if (game->mlx)	
+	if (game->mlx)
 		free(game->mlx);
 	if (game->textures)
 		free(game->textures);

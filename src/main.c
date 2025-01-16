@@ -12,7 +12,7 @@
 
 #include "../includes/so_long.h"
 
-void put_null(t_game *game)
+void	put_null(t_game *game)
 {
 	game->mlx = NULL;
 	game->win = NULL;
@@ -68,10 +68,10 @@ int	main(int argc, char **argv)
 	if (argc < 2 || argc > 2)
 	{
 		ft_printf("usage: %s 'map'\n", argv[0]);
-		return(0);
-	}	
+		return (0);
+	}
 	put_null(&game);
-		if (!read_map(argv[1], &game))
+	if (!read_map(argv[1], &game))
 	{
 		ft_printf("Error, Map Invalid !\n");
 		free_grid(game.grid);
