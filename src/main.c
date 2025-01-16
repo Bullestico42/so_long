@@ -44,17 +44,22 @@ int	begin_render(t_game *game)
 	game->mlx = mlx_init();
 	if (!game->mlx)
 	{
-		ft_printf("Error, impossible to init mlx");
+		ft_printf("Error, impossible to init mlx\n");
 		return (0);
 	}
 	game->win = mlx_new_window(game->mlx, game->length * 64,
 			game->height * 64 + 32, "so_long");
 	if (!game->win)
 	{
-		ft_printf("Error, impossible to init win");
+		ft_printf("Error, impossible to init win\n");
 		return (0);
 	}
 	game->textures = (t_textures *)malloc(sizeof(t_textures));
+	if (!game->textures)
+	{
+		ft_printf("Error, impossible to create textures\n");
+		return (0);
+	}
 	get_images(game);
 	render_map(game);
 	put_enemy(game);
